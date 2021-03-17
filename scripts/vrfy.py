@@ -5,7 +5,7 @@ import sys
 
 
 if len(sys.argv) != 3:
-    print("Usage: vrfy.py <ip> <username>")
+    print("Usage: vrfy.py <ip> <username-file>")
     sys.exit(0)
 
 
@@ -14,9 +14,12 @@ connect = s.connect((sys.argv[1], 25))
 banner = s.recv(1024)
 
 print(banner)
-s.send("VRFY " + sys.argv[2] + "\r\n")
-result = s.recv(1024)
 
-print(result)
-s.close(0)
+with open(sys.argv[2], 'r') as usernames:
+    for username in usernames:
+        s.send("VRFY " + sys.argv[2] + "\r\n")
+        result = s.recv(1024)
+        print(result)
+
+s.close()
 

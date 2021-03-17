@@ -1,0 +1,20 @@
+#!/bin/python
+
+import socket
+import sys
+
+if len(sys.argv) != 3:
+    print("Usage: vrfy.py <ip> <username>")
+    sys.exit(0)
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+connect = s.connect((sys.argv[1], 25))
+banner = s.recv(1024)
+
+print(bannder)
+
+s.send(f"VRFY ${sys.argv[2]}\r\n")
+result = s.recv(1024)
+
+print(result)
+s.close()

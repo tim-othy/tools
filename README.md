@@ -45,6 +45,21 @@ B machine (Windows): `socat OPENSSL-LISTEN:$PORT,cert=cert.pem,verify=0,fork EXE
 ## Self-Signed SSL Certificate
 `openssl req -newkey rsa:2048 -nodes -keyout cert.key -x509 -days 10 -out cert.crt && cat cert.key cert.crt > cert.pem`  
 
+## Web Servers
+
+### Python
+2: `python -m SimpleHTTPServer $PORT`  
+3: `python -m http.server $PORT`  
+
+### PHP
+`php -S 0.0.0.0:$PORT`
+
+### Ruby
+`ruby -run -e httpd . -p $PORT`
+
+### Busybox
+`busybox httpd -f -p $PORT`
+
 ## Get Public IP
 To get your public IP address on Linux run `dig +short myip.opendns.com @resolver1.opendns.com`  
 

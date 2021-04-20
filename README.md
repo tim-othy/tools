@@ -63,7 +63,7 @@ B machine (Windows): `socat OPENSSL-LISTEN:$PORT,cert=cert.pem,verify=0,fork EXE
 ## Proxy Traffic
 
 ### Windows
-Forward traffic from SOURCE_PORT on SOURCE_ADDRESS to TARGET_PORT on TARGET_ADDRESS.
+Forward traffic from SOURCE_PORT on SOURCE_ADDRESS to TARGET_PORT on TARGET_ADDRESS.  
 `netsch interface portproxy add v4tov4 listenport=$SOURCE_PORT listenaddress=$SOURCE_ADDRESS connectaddress=$TARGET_ADDRESS connectport=$TARGET_PORT`
 
 ## Misc

